@@ -1,4 +1,4 @@
-# nodejs-typescript-starter
+# Nodejs With Typescript - Basic Starter code base
 
 # Pre-reqs
 To build and run this app locally you will need a few things:
