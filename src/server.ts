@@ -1,13 +1,17 @@
 import express from "express";
-import UserRoutes from "./routes/UserRoutes";
+import { Db } from "mongodb";
+import mongoose from "mongoose";
 import config from "./config";
-
+import mongoDB from "./loaders/mongoose";
+import UserRoutes from "./routes/UserRoutes";
 
 // Server class
 class Server {
     public app: express.Application;
+    public mongoDB: Promise<Db>;
     constructor() {
         this.app = express();
+        this.mongoDB = mongoDB();
         this.config();
         this.routes();
     }
@@ -20,7 +24,7 @@ class Server {
         this.app.set("port", config.port);
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: false }));
-    }
+    };
 
     /**
      * @desc Defines possible route for the server to listen

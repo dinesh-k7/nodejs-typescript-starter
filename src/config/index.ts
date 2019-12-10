@@ -12,7 +12,7 @@ export default {
     api: {
         prefix: "/api",
     },
-    databaseURL: process.env.MONGODB_URI || "",
+    databaseURL: process.env.MONGODB_URI || "mongodb://localhost/playground",
     jwtSecret: process.env.JWT_SECRET,
     port: process.env.port || 6000,
 };
